@@ -53,90 +53,28 @@
             >@dahljonatan</a
           >
         </h1>
-        <h2 class="year-heading">2019</h2>
-        <!-- TODO: use thumbnail -->
-        <div class="creation">
-          <div class="creation-title">
-            <div>
-              Arch viz
-            </div>
-          </div>
-          <div class="creation-thumbnail">
-            <a
-              href="/#/c/archvizblender"
-              data-featherlight="/img/archvizblender.png"
-            >
-              <!-- TODO: use a thumbnail -->
-              <img src="/img/archvizblender.png" alt="" />
-            </a>
-          </div>
-        </div>
-        <h2 class="year-heading">2018</h2>
-        <div class="creation">
-          <div class="creation-title">
-            <div>
-              Arch viz
-            </div>
-          </div>
-          <div class="creation-thumbnail">
-            <a href="#" data-featherlight="/img/archviz.png">
-              <img src="/img/archviz.png" alt="" />
-            </a>
-          </div>
-        </div>
-        <div class="creation">
-          <div class="creation-title">
-            <div>
-              Drone
-            </div>
-          </div>
-          <div class="creation-thumbnail">
-            <a href="#" data-featherlight="/img/drone.png">
-              <img src="/img/drone.png" alt="" />
-            </a>
-          </div>
-        </div>
-        <div class="creation">
-          <div class="creation-title">
-            <div>
-              Console
-            </div>
-          </div>
-          <div class="creation-thumbnail">
-            <a href="#" data-featherlight="/img/console1.png">
-              <img src="/img/console1.png" alt="" />
-            </a>
-          </div>
-        </div>
-        <h2 class="year-heading">2013</h2>
-        <div class="creation">
-          <div class="creation-title">
-            <div>
-              Flyer
-            </div>
-          </div>
-          <div class="creation-thumbnail">
-            <a href="#" data-featherlight="/img/umbrellaprojects.jpg">
-              <img src="/img/umbrellaprojects.jpg" alt="" />
-            </a>
-          </div>
-        </div>
-        <div class="creation">
-          <div class="creation-title">
-            <div>
-              Atingi
-            </div>
-          </div>
-          <div class="creation-thumbnail">
-            <section data-featherlight-gallery data-featherlight-filter="a">
-              <a href="/img/slide2.jpg">
-                <img src="/img/slide2.jpg" alt="" />
-              </a>
-              <a href="/img/slide3.jpg"> </a>
-              <a href="/img/slide4.jpg"> </a>
-            </section>
-          </div>
-        </div>
+        {{ range .Data.Pages }}
+	  {{ if eq .Type "c" }}
+	    {{ if .NextInSection }}
+	      {{ if not (eq .Date.Year .NextInSection.Date.Year) }}
+	      <h2 class="year-heading">{{ .Date.Year }}</h2>
+	      {{ end }}
+	    {{ else }}
+	      <h2 class="year-heading">{{ .Date.Year }}</h2>
+	    {{ end }}
+	    <div class="creation">
+	      <div class="creation-title">
+		<div>{{ .Name }}</div>
+	      </div>
+	      <div class="creation-thumbnail">
+		<a href="{{ .Page.Permalink }}">
+		  <!-- TODO: use a thumbnail -->
+		  <img src="{{ .Params.image }}" alt="{{ .Params.image }}" />
+		</a>
+	      </div>
+	    </div>
+	  {{ end }}
+	{{ end }}
       </div>
     </div>
     <script
