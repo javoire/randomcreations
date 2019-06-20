@@ -1,106 +1,41 @@
-<!DOCTYPE html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8" />
-    <title>Random Creations by @dahljonatan</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
-
-    <meta name="og:title" content="Random Creations by @dahljonatan" />
-    <meta
-      name="og:image"
-      content="https://randomcreations.wtf/img/archvizblender.png"
-    />
-    <meta name="og:url" content="https://randomcreations.wtf" />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css"
-      type="text/css"
-    />
-
-    <link rel="stylesheet" href="css/main.css" />
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/detect_swipe/2.1.1/jquery.detect_swipe.min.js"></script> -->
-  </head>
-
-  <body>
-    <!--[if IE]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
-    <div class="home scalable">
-      <div class="container">
-        <h1 class="main-title">
-          random <br />creations <br />by <br />
-          <a href="https://twitter.com/dahljonatan" target="_blank"
-            >@dahljonatan</a
-          >
-        </h1>
-        {{ range .Data.Pages }}
-	  {{ if eq .Type "c" }}
-	    {{ if .NextInSection }}
-	      {{ if not (eq .Date.Year .NextInSection.Date.Year) }}
-	      <h2 class="year-heading">{{ .Date.Year }}</h2>
-	      {{ end }}
-	    {{ else }}
-	      <h2 class="year-heading">{{ .Date.Year }}</h2>
+{{ partial "head" }}
+  <!--[if IE]>
+    <p class="browserupgrade">
+      You are using an <strong>outdated</strong> browser. Please
+      <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+      your experience and security.
+    </p>
+  <![endif]-->
+  <div class="home scalable">
+    <div class="container">
+      <h1 class="main-title">
+	random <br />creations <br />by <br />
+	<a href="https://twitter.com/dahljonatan" target="_blank"
+	  >@dahljonatan</a
+	>
+      </h1>
+      {{ range .Data.Pages }}
+	{{ if eq .Type "c" }}
+	  {{ if .NextInSection }}
+	    {{ if not (eq .Date.Year .NextInSection.Date.Year) }}
+	    <h2 class="year-heading">{{ .Date.Year }}</h2>
 	    {{ end }}
-	    <div class="creation">
-	      <div class="creation-title">
-		<div>{{ .Name }}</div>
-	      </div>
-	      <div class="creation-thumbnail">
-		<a href="{{ .Page.Permalink }}">
-		  <!-- TODO: use a thumbnail -->
-		  <img src="{{ .Params.image }}" alt="{{ .Params.image }}" />
-		</a>
-	      </div>
-	    </div>
+	  {{ else }}
+	    <h2 class="year-heading">{{ .Date.Year }}</h2>
 	  {{ end }}
+	  <div class="creation">
+	    <div class="creation-title">
+	      <div>{{ .Name }}</div>
+	    </div>
+	    <div class="creation-thumbnail">
+	      <a href="{{ .Page.Permalink }}">
+		<!-- TODO: use a thumbnail -->
+		<img src="{{ .Params.image }}" alt="{{ .Params.image }}" />
+	      </a>
+	    </div>
+	  </div>
 	{{ end }}
-      </div>
+      {{ end }}
     </div>
-    <script
-      src="//code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script src="//unpkg.com/navigo@6"></script>
-    <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-
-    <script>
-      window.ga = function() {
-        ga.q.push(arguments);
-      };
-      ga.q = [];
-      ga.l = +new Date();
-      ga("create", "UA-137927514-1", "auto");
-      ga("set", "transport", "beacon");
-      ga("send", "pageview");
-    </script>
-    <script
-      src="https://www.google-analytics.com/analytics.js"
-      async
-      defer
-    ></script>
-  </body>
-</html>
+  </div>
+{{ partial "footer" }}

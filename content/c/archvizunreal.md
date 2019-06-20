@@ -1,5 +1,5 @@
 ---
-title: "Arch Viz Unreal"
+title: "Arch Viz"
 image: "/img/archvizunreal.png"
 tags: ["archviz"]
 date: 2018-09-01
