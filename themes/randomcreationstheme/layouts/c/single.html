@@ -1,7 +1,8 @@
 {{ partial "head" }}
 
-<img src="{{ .Params.image }}" alt="">
-<h1>{{ .Name }}</h1>
-{{ .Content }}
-
+<div class="single-article" >
+  <img src="{{ .Params.image }}" alt="">
+  <h1>{{ .Name }}</h1>
+  {{ .Content }}
+</div>
 {{ partial "footer" }}
