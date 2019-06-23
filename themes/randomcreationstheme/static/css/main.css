@@ -342,6 +342,35 @@ h6 {
   .year-heading {
     text-align: left;
   }
+  .single-article {
+    box-shadow: 0 0 30px 0px rgba(0,0,0,0.3);
+    padding: 30px;
+    background-color: #fff;
+    margin: 15px;
+  }
+  .single-article h1 {
+    padding: 30px 280px 10px;
+    margin: 0;
+    margin-top: -38px;
+    background-color: #fff;
+    font-size: 3.5em;
+  }
+  .single-article h2, .single-article h3 {
+    text-align: center;
+    font-size: 1.5em;
+  }
+  .single-article img {
+    width: 100%;
+  }
+  .single-article .single-article-wrapper {
+        display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .single-article-content {
+    max-width: 600px;
+    font-size: 1.4em;
+  }
 }
 
 .creation-thumbnail img {
@@ -355,40 +384,4 @@ h6 {
 img {
   max-width: 100%;
 }
-.lightbox-layout {
-  z-index: 10;
-  position: fixed;
-  overflow-y: scroll;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: #ffffff;
-  opacity: 0.6;
-  display: flex;
-}
 
-.lightbox-layout article div {
-  position: static;
-}
-.no-scroll {
-  overflow: hidden;
-}
-.lightbox-close {
-}
-
-.shrink {
-  transform: translateZ(-50px);
-}
-
-.grow {
-  transform: translateZ(50px);
-}
-
-.scalable {
-  transition: transform 0.2s;
-}
-
-body {
-  perspective: 800px;
-}
