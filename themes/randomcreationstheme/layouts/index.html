@@ -30,7 +30,7 @@
 	    <div class="creation-thumbnail">
 	      <a href="{{ .Page.Permalink }}">
 		<!-- TODO: use a thumbnail -->
-		<img src="{{ .Params.image }}" alt="{{ .Params.image }}" />
+		<img src="{{ index .Params.images 0 }}" alt="{{ .Params.image }}" />
 	      </a>
 	    </div>
 	  </div>

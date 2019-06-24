@@ -1,6 +1,6 @@
 ---
 title: "Drone"
-image: "/img/drone.png"
+images: ["/img/drone.png"]
 date: 2018-06-06
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Arch Viz"
-image: "/img/archvizunreal.png"
+images: ["/img/archvizunreal.png"]
 tags: ["archviz"]
 date: 2018-09-01
 ---
