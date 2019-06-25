@@ -5,6 +5,8 @@ tags: [""]
 date: 2013-03-01
 ---
 
+Designed slides for a school project. The ominous clouds in the backround was a terrible idea, but looked nice visually.
+
 {{< image src="/img/slide3.jpg" alt="Slide 3">}}
 
 {{< image src="/img/slide3.jpg" float="right">}}
