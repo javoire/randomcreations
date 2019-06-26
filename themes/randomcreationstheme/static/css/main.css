@@ -370,6 +370,10 @@ img {
   margin-right: auto;
 }
 @media only screen and (min-width: 768px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   .main-title {
     text-align: left;
   }
