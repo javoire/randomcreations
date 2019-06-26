@@ -9,4 +9,6 @@ Designed slides for a school project. The ominous clouds in the backround was a 
 
 {{< image src="/img/slide3.jpg" alt="Slide 3">}}
 
+Solid colors against a grayscale photo was something I picked up from a friend, and I used it. Turned out pretty good... visually.
+
 {{< image src="/img/slide3.jpg" float="right">}}
