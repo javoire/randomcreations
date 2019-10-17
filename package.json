@@ -1,0 +1,20 @@
+{
+  "name": "randomcreations",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javoire/randomcreations.git"
+  },
+  "author": "https://github.com/javoire",
+  "bugs": {
+    "url": "https://github.com/javoire/randomcreations/issues"
+  },
+  "homepage": "https://github.com/javoire/randomcreations#readme",
+  "devDependencies": {
+    "firebase-tools": "^7.6.0"
+  }
+}

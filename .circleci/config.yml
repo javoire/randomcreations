@@ -1,19 +1,12 @@
 version: 2.1
 
 jobs:
-  dependencies:
-     docker:
-       - image: circleci/node:10
-     working_directory: ~/app
-     steps:
-       - run:
-           name: Install dependencies
-           command: npm install
   build:
      docker:
-       - image: cibuilds/hugo:latest
+       - image: cibuilds/hugo:0.55
      working_directory: ~/app
      steps:
+       - checkout
        - run:
            name: Build static assets
            command: hugo
@@ -23,16 +16,16 @@ jobs:
      working_directory: ~/app
      steps:
        - run:
+           name: Install dependencies
+           command: npm install
+       - run:
            name: Deploy Master to Firebase Hosting
            command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:
   main:
     jobs:
-      - dependencies
-      - build:
-          requires:
-            - dependencies
+      - build
       - deploy:
           requires:
             - build
