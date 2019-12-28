@@ -9,33 +9,32 @@
   <div class="home scalable">
     <div class="container">
       <h1 class="main-title">
-	random <br />creations <br />by <br />
-	<a href="https://twitter.com/dahljonatan" target="_blank"
-	  >@dahljonatan</a
-	>
+        random <br />creations <br />by <br />
+	      <a href="https://twitter.com/dahljonatan" target="_blank" >@dahljonatan</a >
       </h1>
-      {{ range .Data.Pages }}
-	{{ if eq .Type "c" }}
-	  {{ if .NextInSection }}
-	    {{ if not (eq .Date.Year .NextInSection.Date.Year) }}
-	    <h2 class="year-heading">{{ .Date.Year }}</h2>
+      {{ range .Site.Pages }}
+      <!-- There's a rogue ghost page that has no .md file and images is nil.. exlcude until I figure out what it is -->
+	    {{ if and (eq .Type "c") (not (eq .Params.images nil)) }}
+	    {{ if .NextInSection }}
+        {{ if not (eq .Date.Year .NextInSection.Date.Year) }}
+        <h2 class="year-heading">{{ .Date.Year }}</h2>
+        {{ end }}
+	    {{ else }}
+	      <h2 class="year-heading">{{ .Date.Year }}</h2>
 	    {{ end }}
-	  {{ else }}
-	    <h2 class="year-heading">{{ .Date.Year }}</h2>
-	  {{ end }}
-	  <div class="creation">
-	    <div class="creation-title">
-	      <div>{{ .Name }}</div>
-	    </div>
-	    <div class="creation-thumbnail">
-	      <a href="{{ .Page.Permalink }}">
-		<!-- TODO: use a thumbnail -->
-		<img src="{{ index .Params.images 0 }}" alt="{{ .Params.image }}" />
+      <div class="creation">
+        <div class="creation-title">
+          <div>{{ .Name }}</div>
+        </div>
+        <div class="creation-thumbnail">
+          <a href="{{ .Page.Permalink }}">
+          <!-- TODO: use a thumbnail -->
+          <img src="{{ index .Params.images 0 }}" alt="{{ .Params.image }}" />
 	      </a>
 	    </div>
 	  </div>
-	{{ end }}
-      {{ end }}
+	  {{ end }}
+    {{ end }}
     </div>
   </div>
 {{ partial "footer" }}
