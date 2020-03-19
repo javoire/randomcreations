@@ -28,7 +28,7 @@ jobs:
           command: npm install
       - run:
           name: Deploy Master to Firebase Hosting
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+          command: ./node_modules/.bin/firebase deploy --project randomcreations --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:
   main:
