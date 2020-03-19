@@ -379,6 +379,15 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+nav a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.4em;
+  margin-right: 10px;
+}
+nav a:hover, nav a.active {
+  text-decoration: underline;
+}
 @media only screen and (min-width: 768px) {
   .container {
     padding-left: 30px;

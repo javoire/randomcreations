@@ -1,0 +1,4 @@
+<nav>
+  <a href="/" {{ if eq (.Scratch.Get "active") "c" }}class="active"{{ end }} >creations</a>
+  <a href="/b" {{ if eq (.Scratch.Get "active") "b" }}class="active"{{ end }} >words</a>
+</nav>

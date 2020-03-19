@@ -2,7 +2,8 @@
   <div class="home scalable">
     <div class="container">
       {{ partial "main-title" }}
-
+      {{ .Scratch.Set "active" "b" }}
+      {{ partialCached "main-menu" . "b" }}
       {{ range .Site.Pages }}
       <!-- There's a rogue ghost page that has no .md file and images is nil.. exlcude until I figure out what it is -->
 	    {{ if and (eq .Type "b") (not (eq .Params.images nil)) }}
