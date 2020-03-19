@@ -21,7 +21,7 @@ And these are my Substance Designer nodes:
 
 {{< image src="/img/substance-nodes.png" alt="Substance Nodes">}}
 
-Next steps would be making [nebulas](https://www.google.com/search?q=eve+online+nebula&rlz=1C1CHBF_enUS811US811&sxsrf=ALeKk02DECfICmu7JWyXuR5qSdcTHLoX9w:1584495431929&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjx8_i68aLoAhWChHIEHRLVA7oQ_AUoAXoECAsQAw&biw=3440&bih=1329), but I’m not capable of that right now. My guess for an advanced way to do it would be playing around with smoke simulations in e.g. Blender and render a tileable texture to overlay on the stars. That way they may look volumetric and awesome a la Even Online. A simpler approach would be to play around with “cloudy” noise in Substance to achieve good looking but perhaps flatter nebulas.
+Next steps would be making [nebulas](https://www.google.com/search?q=eve+online+nebula&rlz=1C1CHBF_enUS811US811&sxsrf=ALeKk02DECfICmu7JWyXuR5qSdcTHLoX9w:1584495431929&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjx8_i68aLoAhWChHIEHRLVA7oQ_AUoAXoECAsQAw&biw=3440&bih=1329), but I’m not capable of that right now. My guess for an advanced way to do it would be playing around with smoke simulations in e.g. Blender and render a tileable texture to overlay on the stars. That way they may look volumetric and awesome à la Eve Online. A simpler approach would be to play around with “cloudy” noise in Substance to achieve good looking but perhaps flatter nebulas.
 
 ### Cubemap
 
