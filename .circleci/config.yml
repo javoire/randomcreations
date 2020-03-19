@@ -15,6 +15,7 @@ jobs:
           paths:
             - public # hugo output
             - package.json
+            - firebase.json
   deploy:
     docker:
       - image: circleci/node:10
