@@ -350,6 +350,11 @@ h6 {
 .single-article h2,
 .single-article h3 {
   text-align: center;
+}
+.single-article h2 {
+  font-size: 2em;
+}
+.single-article h3 {
   font-size: 1.5em;
 }
 .single-article-content img {
@@ -398,6 +403,7 @@ img {
     background-color: #fff;
   }
   .single-article h1 {
+    padding-top: 150px;
     margin-top: -38px;
     font-size: 3.5em;
     min-width: 90%;
