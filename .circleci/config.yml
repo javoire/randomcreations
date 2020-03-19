@@ -2,25 +2,30 @@ version: 2.1
 
 jobs:
   build:
-     docker:
-       - image: cibuilds/hugo:0.55
-     working_directory: ~/app
-     steps:
-       - checkout
-       - run:
-           name: Build static assets
-           command: hugo
+    docker:
+      - image: cibuilds/hugo:0.55
+    working_directory: ~/app
+    steps:
+      - checkout
+      - run:
+          name: Build static assets
+          command: hugo
+      - persist_to_workspace:
+          root: .
+          paths:
+            - public # hugo output
+            - node_modules
   deploy:
-     docker:
-       - image: circleci/node:10
-     working_directory: ~/app
-     steps:
-       - run:
-           name: Install dependencies
-           command: npm install
-       - run:
-           name: Deploy Master to Firebase Hosting
-           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/app
+    steps:
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Deploy Master to Firebase Hosting
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:
   main:
