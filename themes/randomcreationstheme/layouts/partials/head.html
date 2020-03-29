@@ -2,7 +2,7 @@
 <html class="no-js" lang="">
   <head>
     <meta charset="utf-8" />
-    <title>Random Creations by @dahljonatan</title>
+    <title>{{ if and .Name ( not .IsHome ) }}{{ .Name }} | {{ end }}Random Creations by @dahljonatan</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -14,13 +14,7 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
 
-    <meta name="og:title" content="Random Creations by @dahljonatan" />
-    <meta
-      name="og:image"
-      content="https://randomcreations.wtf/img/archvizblender.png"
-    />
-    <meta name="og:url" content="https://randomcreations.wtf" />
-    <meta name="twitter:card" content="summary_large_image" />
+    {{ template "_internal/opengraph.html" .  }}
 
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i"

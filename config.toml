@@ -2,3 +2,10 @@ baseURL = "https://randomcreations.wtf/"
 languageCode = "en-us"
 title = "Random Creations by @dahljonatan"
 theme = "randomcreationstheme"
+# open graph:
+[params]
+  description = ""
+  images = ["/img/arch-viz.png"]
+
+[taxonomies]
+  series = "series"

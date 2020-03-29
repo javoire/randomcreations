@@ -1,4 +1,4 @@
-{{ partial "head" }}
+{{ partial "head" . }}
 
 <div class="single-article">
   <img src="{{ index .Params.images 0 }}" alt="" />
@@ -10,4 +10,4 @@
   </div>
 </div>
 
-{{ partial "footer" }}
+{{ partial "footer" . }}
