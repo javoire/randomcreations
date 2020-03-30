@@ -47,13 +47,15 @@ With inspiration from [this video](https://www.youtube.com/watch?v=sOOdbcdUopQ) 
 
 {{< image src="/img/space-clouds.png" alt="Space clouds">}}
 
-And [this is my Substance Designer graph](/img/space-clouds-nodes.png). It's too big to be readable in one image so I might cover it in a separate post. The short version is that it's made out of many multiplied layers of cloud noise, then some details are extracted that are both added and subtracted to give depth and create a space-y feel.
+And [this is my Substance Designer graph](/img/space-clouds-nodes.png). It's too big to be readable in one image so I might cover it in a separate post. The short version is that it's made out of many multiplied layers of cloud noise, then some details are extracted that are both added and subtracted to give depth and create a space-y (?) feel.
 
-In Unreal Engine it looks like this:
+In Unreal Engine it looks like this, with some tweaks to density and intensity parameters:
 
-{{< image src="/img/space-clouds-ue.png" alt="Space clouds in Unreal Engine">}}
+{{< image src="/img/space-clouds-ue-2.png" alt="Space clouds in Unreal Engine">}}
 
-I've mapped 3 different variations of the space clouds texture onto 3 different curved planes in the distance. Since Substance Designer is all about procedural generation of textures I can change the "seed" number that generates the clouds in Unreal and get different variations of the space clouds.
+Here's [an earlier attempt](/img/space-clouds-ue.png) that looks cool but is way too intense.
+
+The setup in Unreal is that I've mapped 3 different variations of the space clouds texture onto 3 different curved planes in the distance. Since Substance Designer is all about procedural generation of textures I can change the "seed" number that generates the clouds in Unreal and get different variations of the space clouds.
 
 Below are 2 zoomed out views of the level, one normal and one in wireframe mode, where you can see the 3 curved planes better.
 
