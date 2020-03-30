@@ -3,5 +3,5 @@
 [Hugo](https://gohugo.io)
 
 ```sh
-$ hugo server --watch
+$ hugo serve
 ```
