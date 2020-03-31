@@ -1,6 +1,6 @@
 ---
 title: "Space Game"
-images: ["/img/space-game.png"]
+images: ["/img/sun-ue.png"]
 tags: ["archviz"]
 date: 2020-03-18
 ---
