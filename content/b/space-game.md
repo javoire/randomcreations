@@ -61,4 +61,18 @@ Below are 2 zoomed out views of the level, one normal and one in wireframe mode,
 
 {{< image src="/img/space-clouds-mesh-wireframe.jpg" alt="Space cloud mesh in Unreal Engine">}}
 
+## Sun
+
+A space environment would not be complete without a sun, as I'm imagining one would be zooming between solar systems for the most part. So a local sun with an aesthetically pleasing color is a must.
+
+Looking at Eve Online, Star Citizen and Elite Dangerous as inspiration I created something that is not even remotely close to their suns, but yet simple and functional.
+
+I ended up layering [flat sun sprites](/img/sun-nodes.png) of varying size and intensity combined with a [glowing sphere](/img/sun-sphere.png) in the middle as my final sun creation. One layer being _very_ large and subtle to create a nice ambient background color around the greater area of the sun.
+
+Here's what it looks like in Unreal:
+
+{{< image src="/img/sun-ue.png" alt="Sun in Unreal Engine">}}
+
+While experimenting I noticed that the blurrier it is, the further away it appears. I believe it is because you can't really discern its size. It can be demonstrated in [this example](/img/sun-ue-closer.png) where it appears much closer due to its edges being distinguishable.
+
 To be continued...
