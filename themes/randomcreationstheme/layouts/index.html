@@ -9,11 +9,13 @@
   <div class="home scalable">
     <div class="container">
       {{ partial "main-title" }}
+      {{/*
       {{ .Scratch.Set "active" "c" }}
       {{ partialCached "main-menu" . "c" }}
+      */}}
       {{ range .Site.Pages }}
       <!-- There's a rogue ghost page that has no .md file and images is nil.. exlcude until I figure out what it is -->
-	    {{ if and (eq .Type "c") (not (eq .Params.images nil)) }}
+	    {{ if and (or (eq .Type "c") (eq .Type "b")) (not (eq .Params.images nil)) }}
 	    {{ if .NextInSection }}
         {{ if not (eq .Date.Year .NextInSection.Date.Year) }}
         <h2 class="year-heading">{{ .Date.Year }}</h2>
