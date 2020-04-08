@@ -77,4 +77,8 @@ While experimenting I noticed that the blurrier it is, the further away it appea
 
 By digging deeper into the sun [Blueprint](https://docs.unrealengine.com/en-US/Engine/Blueprints/index.html) I made in Unreal I found a way to assign the [color of all layers to a variable](/img/sun-color-ue-nodes.png) to more easily create suns in [different](/img/sun-ue-blue.png) [colors](/img/sun-ue-red.png)
 
+I've also added an easy way to control the sun's distance, which really just is changing it's scale but the perceived effect is how close or far it is. The intensity of the directional light shining from the sun, as well as the ambient glow are adapted to its proximity. This is demonstrated in this video:
+
+{{< youtube id="3FD5j7Aa9cw" alt="Dynamic sun color and distance">}}
+
 To be continued...

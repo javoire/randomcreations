@@ -391,6 +391,23 @@ nav a {
 nav a:hover, nav a.active {
   text-decoration: underline;
 }
+
+.video-wrapper {
+  margin-bottom: 70px;
+  margin-top: 70px;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 @media only screen and (min-width: 768px) {
   .container {
     padding-left: 30px;
