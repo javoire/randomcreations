@@ -1,6 +1,6 @@
 ---
 title: "Space Game"
-images: ["/img/sun-ue.png"]
+images: ["/img/space-game.png"]
 tags: ["archviz"]
 date: 2020-03-18
 ---
@@ -15,7 +15,7 @@ My first thought led me to my old trusty tool Photoshop for this, but then I rem
 
 Some googling led me to [this tutorial](http://www.astrobasecommand.com/oh-my-god-its-full-of-stars-a-brief-tutorial-on-creating-procedural-star-fields-using-substances/). The short version of it is: Create white noise and then a buncha’ more white noise to achieve a good balance of stars vs empty black space, then add a little color. This is my result:
 
-{{< image src="/img/space-game.png" alt="Starfield">}}
+{{< image src="/img/stars.png" alt="Starfield">}}
 
 And [this is my Substance Designer graph](/img/substance-nodes.png).
 
@@ -80,5 +80,18 @@ By digging deeper into the sun [Blueprint](https://docs.unrealengine.com/en-US/E
 I've also added an easy way to control the sun's distance, which really just is changing it's scale but the perceived effect is how close or far it is. The intensity of the directional light shining from the sun, as well as the ambient glow are adapted to its proximity. This is demonstrated in this video:
 
 {{< youtube id="3FD5j7Aa9cw" alt="Dynamic sun color and distance">}}
+
+
+## Space Boxes
+
+What is space without boxes? Totally fine, probably. But any space game still needs boxes that look sci-fi-y, obviously.
+
+Since I can't work on one thing for too long without getting bored, I pivoted from designing the space scape to upgrading the floor and the boxes that come with the default First Person example map in UE4.
+
+Here's the result:
+
+{{< image src="/img/ue4-space-boxes.png" alt="Space boxes in UE4">}}
+
+I modeled [the box in Blender](/img/blender-space-box.png) and textured it in Substance Painter. The box material is painted metal with worn edges, [this article](https://academy.substance3d.com/courses/substance-painter-peeled-paint-effect) describes a good method to achieve that. After the base was made I added a bunch of completely arbitrary details to the [normal map](https://en.wikipedia.org/wiki/Normal_mapping) and the base color map to make it look more interesting. [This](/img/space-box-pre-details.png) is with only the base material, and [this](/img/sp-space-box.png) is with the completely arbitrary details. And [here's](/img/ue4-space-boxe-close.png) a close up of the space box in Unreal.
 
 To be continued...
