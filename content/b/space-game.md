@@ -94,4 +94,16 @@ Here's the result:
 
 I modeled [the box in Blender](/img/blender-space-box.png) and textured it in Substance Painter. The box material is painted metal with worn edges, [this article](https://academy.substance3d.com/courses/substance-painter-peeled-paint-effect) describes a good method to achieve that. After the base was made I added a bunch of completely arbitrary details to the [normal map](https://en.wikipedia.org/wiki/Normal_mapping) and the base color map to make it look more interesting. [This](/img/space-box-pre-details.png) is with only the base material, and [this](/img/sp-space-box.png) is with the completely arbitrary details. And [here's](/img/ue4-space-boxe-close.png) a close up of the space box in Unreal.
 
+## Metal
+
+So making the space box made me think a lot about [PBR materials](https://en.wikipedia.org/wiki/Physically_based_rendering), such as you make in e.g. Substance Designer/Painter. And specifically about metal. How do you make something look like metal? What is a metal material?
+
+The answer is shine and wear. It's easy to make a material shiny (or reflective) in a 3D/Game engine but that doesn't make it look like metal. To make it look like metal you ruin the shine by adding many layers of roughness like scratches, edge wear and dirtiness etc. I.e to create a convincing illusion in a "perfect" world of ones and zeros, you make it imperfect. In PBR terms you create a _roughness map_ that you apply to your mesh's surface.
+
+Is [this](/img/fence-ue-norough.png) metal? No [this](/img/fence-ue.png) is metal. And here's [without wear](/img/fence-ue-level-norough.png) in the game level, and here's [with wear](/img/fence-ue-level.png).
+
+You may notice that the edges are extra worn. That can be accomplished by "baking" the curvature (edges) of the mesh into a mask that you can apply to the roughness map, to make the edges either extra rough or extra shiny. You may also notice that the metal plate of the fence has repeating patterns and that's because I'm lazy in Blender and have the model mirrored in the middle, it saves time. I will fix that sometime™.
+
+{{< image src="/img/ue-platform-with-fences.png" alt="Platform with fences UE4">}}
+
 To be continued...
