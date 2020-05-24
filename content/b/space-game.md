@@ -106,4 +106,16 @@ You may notice that the edges are extra worn. That can be accomplished by "bakin
 
 {{< image src="/img/ue-platform-with-fences.png" alt="Platform with fences UE4">}}
 
+## More Metal
+
+So I've been obsessing over metal lately. Star Citizen has [great metal](/img/starcitizen-metal.jpg). So I've been running around in that game [looking at metal](/img/starcitizen-metal2.jpg). Especially [metal floors](/img/starcitizen-metal-floors.jpg). I realized that almost all materials in Star Citizen have a little fine graininess in the surface, including non-painted metals floors when looking [really closely](/img/starcitizen-graininess.jpg). I guess that makes a lot of sense since no surface in the real world is perfectly smooth. So by adding a very fine grainy roughness to most materials, even if subtly, it will reflect the light a little less uniformly, to make it seem  more believable. 
+
+I created a "base metal" [material in Substance Designer](/img/basemetal-substance-graph.png) with many of the ["levels"](https://www.photoshopessentials.com/photo-editing/levels/) parameters exposed, so they would be [editable in UE4](/img/ue-substance-parameters.png). After dragging some sliders up and down, here's the result:
+
+{{< image src="/img/basemetal-ue.png" alt="Base metal floor UE">}}
+
+And [here's a close up](/img/basemetal-ue-close.png) showing the fine grained surface somewhat clearer.
+
+Next up is to create [floor plates](/img/starcitizen-metal-floor-plates.jpg), since one massive metal floor isn't very realistic. Star Citizen does this by [slapping on decals everywhere](https://www.youtube.com/watch?v=tvo5QcMs4uc).
+
 To be continued...
