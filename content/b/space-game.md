@@ -1,6 +1,6 @@
 ---
 title: "Space Game"
-images: ["/img/space-game.png"]
+images: ["/img/ue-with-lamps.png"]
 tags: ["archviz"]
 date: 2020-03-18
 ---
@@ -117,5 +117,19 @@ I created a "base metal" [material in Substance Designer](/img/basemetal-substan
 And [here's a close up](/img/basemetal-ue-close.png) showing the fine grained surface somewhat clearer.
 
 Next up is to create [floor plates](/img/starcitizen-metal-floor-plates.jpg), since one massive metal floor isn't very realistic. Star Citizen does this by [slapping on decals everywhere](https://www.youtube.com/watch?v=tvo5QcMs4uc).
+
+<!-- november 2020 -->
+
+## Let there be lamp
+
+Having no real plan with anything I decided to make a lamp post to practice my modeling skills in Blender. It ended up looking kind of sci-fi-y even though none of the details make any sense whatsoever. The parts (eg leg, pole etc) a modeled as separate objects in Blender (left), [textured in Substance Designer](/img/substance-painter-lamp-leg.png) and then manually assembled in UE4 (right):
+
+{{< image src="/img/lamp-blender-ue.jpg" alt="Lamp model in Blender and UE4">}}
+
+I also added new floor plates, using a procedural material that I [set up in Substance Designer](/img/substance-designer-brick-metal-plates.png). The main input is a node that generates a "brick pattern", then there are tons of filters and masks than create the worn painted metal plate look. I exposed a parameter from the "brick node" which makes it possible to, in UE4, have different amounts of metal plates, and since everything is procedural, the colors and wear & tear updates automatically.
+
+This is the updated look of the scene:
+
+{{< image src="/img/ue-with-lamps.png" alt="Platform with lamps UE4">}}
 
 To be continued...
