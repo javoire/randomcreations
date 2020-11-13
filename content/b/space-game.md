@@ -136,7 +136,7 @@ This is the updated look of the scene:
 
 Time for some interactivity. I finally found out how to create interactive screens in the world, such as they have in e.g. Star Citizen. I.e it's not a UI on the computer screen but physical objects in the game you walk up to and click on.
 
-I started by quickly designing a very cliché [sci-fi looking UI in Figma](/img/screen-figma.png), then imported the parts into a UI widget in UE. I also assigned an emissive material to give it a faint glow. The text in the UI is a text element in UE and not an image.
+I started by quickly designing a very cliché [sci-fi looking UI in Figma](/img/screen-figma.png), then imported the parts into a [UI widget in UE](/img/screen-ui-widget.png). The text in the UI is a text element in UE and not an image. I assigned an emissive material to give it a faint glow.
 
 I also modeled a screen thingy in Blender:
 
@@ -150,6 +150,6 @@ The final scene now looks like:
 
 Notice how the screen has smudges and uneveness. Never forget that nothing in real life is perfect! Always add wear and tear.
 
-Next up is to make it actually interactive.
+Next up is to make it actually interactive, and make it look good!
 
 To be continued...
