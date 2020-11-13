@@ -1,6 +1,6 @@
 ---
 title: "Space Game"
-images: ["/img/ue-with-lamps.png"]
+images: ["/img/ue-with-screen.png"]
 tags: ["archviz"]
 date: 2020-03-18
 ---
@@ -131,5 +131,25 @@ I also added new floor plates, using a procedural material that I [set up in Sub
 This is the updated look of the scene:
 
 {{< image src="/img/ue-with-lamps.png" alt="Platform with lamps UE4">}}
+
+## UI
+
+Time for some interactivity. I finally found out how to create interactive screens in the world, such as they have in e.g. Star Citizen. I.e it's not a UI on the computer screen but physical objects in the game you walk up to and click on.
+
+I started by quickly designing a very cliché [sci-fi looking UI in Figma](/img/screen-figma.png), then imported the parts into a UI widget in UE. I also assigned an emissive material to give it a faint glow. The text in the UI is a text element in UE and not an image.
+
+I also modeled a screen thingy in Blender:
+
+{{< image src="/img/screen-blender-ue.jpg" alt="Screen Blender UE4">}}
+
+The screen material is translucent with subsurface scattering.
+
+The final scene now looks like:
+
+{{< image src="/img/ue-with-screen.png" alt="Platform with screen UE4">}}
+
+Notice how the screen has smudges and uneveness. Never forget that nothing in real life is perfect! Always add wear and tear.
+
+Next up is to make it actually interactive.
 
 To be continued...
