@@ -1,6 +1,6 @@
 ---
 title: "Space Game"
-images: ["/img/ue-with-screen.png"]
+images: ["/img/ue-platform-with-tab-ui.png"]
 tags: ["archviz"]
 date: 2020-03-18
 ---
@@ -151,5 +151,17 @@ The final scene now looks like:
 Notice how the screen has smudges and uneveness. Never forget that nothing in real life is perfect! Always add wear and tear.
 
 Next up is to make it actually interactive, and make it look good!
+
+### Interactivity
+
+So I found out how to [make interactive UIs in 3D space](https://www.youtube.com/watch?v=_1zWWabWof0).
+
+The previous UI design was not very nice so I first spent some time [redesigning the UIs in Figma](/img/figma-ui.png). Including [some buttons with hover and clicked state](/img/figma-button-states). This is the updated result in game:
+
+{{< image src="/img/ue-tab-ui.png" alt="Interactive screen in ue4">}}
+
+Eventually I managed to figure out how to make an interactive "tab view" where the you can switch tabs by clicking on buttons. Here's a demo video of the tab interactivity:
+
+{{< youtube id="a2QQJJzu8Q4" alt="Tab switcher in UE4">}}
 
 To be continued...
