@@ -162,6 +162,10 @@ The previous UI design was not very nice so I first spent some time [redesigning
 
 Eventually I managed to figure out how to make an interactive "tab view" where the you can switch tabs by clicking on buttons. Here's a demo video of the tab interactivity:
 
-{{< youtube id="a2QQJJzu8Q4" alt="Tab switcher in UE4">}}
+{{< youtube id="UbGb0cqotlc" alt="Tab switcher in UE4">}}
+
+If you look closely in the beginning of the video, the "crosshair dot" animates when it moves on top of the display. It scales up and gets more opaque.
+
+That's achieved through a [widget animation](/img/ue-widget-animation.png) combined with a [line trace](/img/ue-line-trace.png) that checks for Actors extending a class ("Blueprint") that I called "InteractableComponent". If the line trace collision returns true for that check, an event is fired [that is subscribed to](/img/ue-event-subscribe.png) in the main HUD Blueprint, and that one tells the animation to start.
 
 To be continued...
