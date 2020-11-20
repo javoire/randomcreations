@@ -345,7 +345,7 @@ h6 {
   margin-top: -20px;
   background-color: #fff;
   padding: 36px 0 0;
-  margin-bottom: 15px;
+  margin-bottom: 85px;
 }
 .single-article h2,
 .single-article h3 {
@@ -360,7 +360,7 @@ h6 {
 .single-article-content img {
   margin-top: 30px;
 }
-.single-article-content p {
+.single-article-content p, .single-article-content ol {
   padding-left: 30px;
   padding-right: 30px;
   text-align: center;
@@ -370,7 +370,7 @@ h6 {
   font-size: 0.8em;
   line-height: 1.8em;
 }
-.single-blog .single-article-content p {
+.single-blog .single-article-content p, .single-article-content ol {
   text-align: left;
 }
 img {
@@ -416,6 +416,9 @@ nav a:hover, nav a.active {
   .main-title {
     text-align: left;
   }
+  .footer {
+    min-height: 200px;
+  }
   .creation {
     height: 266px;
     display: flex;
@@ -432,8 +435,8 @@ nav a:hover, nav a.active {
     background-color: #fff;
   }
   .single-article h1 {
-    padding-top: 150px;
-    margin-top: -38px;
+    padding-top: 120px;
+    margin-top: 0;
     font-size: 3.5em;
     min-width: 90%;
     text-align: center;
@@ -444,7 +447,7 @@ nav a:hover, nav a.active {
   .single-article-content {
     padding: 0;
   }
-  .single-article-content p {
+  .single-article-content p, .single-article-content ol {
     max-width: 600px;
     margin-right: auto;
     margin-left: auto;
@@ -457,11 +460,11 @@ nav a:hover, nav a.active {
   .single-article-content p:last-child {
     margin-bottom: 30px;
   }
-  .single-article-content img {
+  .single-article-content .img-wrapper {
     margin-top: 70px;
     margin-bottom: 70px;
   }
-  .single-article-content img:last-child {
+  .single-article-content .img-wrapper:last-child {
     margin-bottom: 0;
   }
   nav {

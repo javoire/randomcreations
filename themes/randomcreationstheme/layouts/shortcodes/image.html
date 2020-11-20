@@ -1,1 +1,9 @@
-<img src="{{ .Get "src" }}" alt="">
+<div class="img-wrapper">
+{{ if eq (.Get "make-link") "true" }}
+<a class="image-link" href="{{ .Get "src" }}" target="_blank">
+{{ end }}
+<img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}">
+{{ if eq (.Get "make-link") "true" }}
+</a>
+{{ end }}
+</div>
