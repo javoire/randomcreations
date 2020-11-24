@@ -42,7 +42,7 @@ Next we need to listen to the above event in the main **HUD blueprint** and tell
 To step through what's happening, for the unlocking of the mouse:
 
 1. We receive the event that the CTRL key was pressed
-1. We center the mouse cursor in the middle of the screen, where the crosshair dot is located
+1. We [center the mouse cursor](/img/ue-centermouse.png) in the middle of the screen, where the crosshair dot is located
 1. We set the crosshair widget as the mouse cursor.
 1. We remove the crosshair widget from the screen, as the cursor is possessing it instead.
 1. We toggle the game's input mode to **Game And UI**
