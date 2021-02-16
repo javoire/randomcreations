@@ -156,7 +156,7 @@ Next up is to make it actually interactive, and make it look good!
 
 So I found out how to [make interactive UIs in 3D space](https://www.youtube.com/watch?v=_1zWWabWof0).
 
-The previous UI design was not very nice so I first spent some time [redesigning the UIs in Figma](/img/figma-ui.png). Including [some buttons with hover and clicked state](/img/figma-button-states). This is the updated result in game:
+The previous UI design was not very nice so I first spent some time [redesigning the UIs in Figma](/img/figma-ui.png). Including [some buttons with hover and clicked state](/img/figma-button-states.png). This is the updated result in game:
 
 {{< image src="/img/ue-tab-ui.png" alt="Interactive screen in ue4">}}
 
