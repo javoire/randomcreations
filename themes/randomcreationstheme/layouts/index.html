@@ -18,14 +18,14 @@
 	    {{ if and (or (eq .Type "c") (eq .Type "b")) (not (eq .Params.images nil)) }}
 	    {{ if .NextInSection }}
         {{ if not (eq .Date.Year .NextInSection.Date.Year) }}
-        <h2 class="year-heading">{{ .Date.Year }}</h2>
+        <h2 class="year-heading"><span>{{ .Date.Year }}</span></h2>
         {{ end }}
 	    {{ else }}
-	      <h2 class="year-heading">{{ .Date.Year }}</h2>
+	      <h2 class="year-heading"><span>{{ .Date.Year }}</span></h2>
 	    {{ end }}
       <div class="creation">
         <div class="creation-title">
-          <div>{{ .Name }}</div>
+          <h3>{{ .Name }}</h3>
         </div>
         <div class="creation-thumbnail">
           <a href="{{ .Page.Permalink }}">

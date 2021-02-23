@@ -1,7 +1,9 @@
 {{ partial "head" . }}
 
 <div class="single-article">
-  <img src="{{ index .Params.images 0 }}" alt="" />
+  <div class="single-article-header-img">
+    <img src="{{ index .Params.images 0 }}" alt="" />
+  </div>
   <div class="single-article-wrapper">
     <h1>{{ .Name }}</h1>
     <div class="single-article-content">

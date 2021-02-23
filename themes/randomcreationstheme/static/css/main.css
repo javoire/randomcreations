@@ -16,6 +16,7 @@ html {
   line-height: 1.4;
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 300;
+  background-color: #111;
 }
 
 /*
@@ -282,10 +283,11 @@ h6 {
   padding: 152px 0 132px;
   font-size: 50px;
   text-align: center;
+  color: #e1e1e1;
 }
 
 .main-title a {
-  color: #000000;
+  color: #e1e1e1;
   text-decoration: none;
 }
 
@@ -297,27 +299,48 @@ h6 {
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 200px;
+  width: auto;
+  max-width: 100rem;
 }
 
 .year-heading {
   font-size: 40px;
-  margin-bottom: 71px;
+  margin-bottom: 30px;
   margin-top: 111px;
-  text-align: center;
+}
+
+.year-heading span {
+  display: inline-block;
+  background: white;
+  padding: 10px;
+  padding-right: 100px;
+  padding-top: 20px;
 }
 
 .creation {
-  margin: 22px 0;
+  display: flex;
+  margin: 0;
+  margin-bottom: 30px;
+  position: relative;
+  max-height: 300px;
+  overflow: hidden;
 }
 .creation-title {
+  z-index: 100;
+  padding: 10px;
+  padding-right: 30px;
+  position: absolute;
+  bottom: 0;
   color: #4b4b4b;
   background: #f6f6f6;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: left; */
   display: flex;
   flex-shrink: 0;
-  padding: 10px;
-  text-align: center;
+  text-align: left;
+}
+.creation-title h3 {
+  margin: 0;
 }
 .creation-thumbnail {
   overflow: hidden;
@@ -329,6 +352,12 @@ h6 {
 }
 .creation-thumbnail:hover a {
   transform: scale(1.1);
+}
+.single-article {
+  background: white;
+}
+.single-article-header-img {
+  background: #111;
 }
 .single-article-content {
   width: 100%;
@@ -344,7 +373,6 @@ h6 {
 .single-article h1 {
   font-size: 2.9em;
   margin-bottom: 0;
-  background-color: #fff;
   padding: 36px 0 0;
   margin-bottom: 85px;
 }
@@ -419,29 +447,28 @@ nav a:hover, nav a.active {
 
 @media only screen and (min-width: 768px) {
   .container {
-    padding-left: 30px;
-    padding-right: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
   }
   .main-title {
+    margin-top: 130px;
     text-align: left;
   }
   .footer {
     min-height: 200px;
   }
   .creation {
-    height: 266px;
-    display: flex;
+    height: 380px;
+    max-height: 380px;
   }
   .creation-title {
     font-size: 25px;
-    width: 266px;
-    padding: 0;
+    padding-bottom: 12px;
+    padding-right: 86px;
+    padding-top: 19px;
   }
   .year-heading {
     text-align: left;
-  }
-  .single-article {
-    background-color: #fff;
   }
   .single-article h1 {
     padding-top: 120px;
@@ -455,6 +482,7 @@ nav a:hover, nav a.active {
   }
   .single-article-content {
     padding: 0;
+    padding-bottom: 50px;
   }
   .single-article-content p, .single-article-content ol {
     max-width: 600px;
@@ -481,7 +509,22 @@ nav a:hover, nav a.active {
     text-align: left;
   }
 }
+
+/* 100rem + 3.75rem. 100 rem + twice the 30px margin */
+@media only screen and (min-width: 103.75rem) {
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .single-article h1 {
+    min-width: 60%;
+  }
+}
+
 @media only screen and (min-width: 1100px) {
+  .container {
+    /* width: 100rem; */
+  }
   .single-article h1 {
     min-width: 60%;
   }
