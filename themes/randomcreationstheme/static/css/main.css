@@ -277,13 +277,17 @@ h4,
 h5,
 h6 {
   font-weight: 300;
+  font-family: 'Newsreader';
 }
 
 .main-title {
   padding: 152px 0 132px;
+  padding-left: 0px;
   font-size: 50px;
-  text-align: center;
   color: #e1e1e1;
+  font-family: 'Newsreader';
+  text-align: left;
+  padding-left: 10%;
 }
 
 .main-title a {
@@ -304,17 +308,23 @@ h6 {
 }
 
 .year-heading {
-  font-size: 40px;
+  z-index: 100;
+  font-size: 20px;
   margin-bottom: 30px;
-  margin-top: 111px;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  right: 30px;
 }
 
 .year-heading span {
   display: inline-block;
-  background: white;
+  background: black;
+  color: white;
   padding: 10px;
-  padding-right: 140px;
-  padding-top: 20px;
+  padding-left: 40px;
+  padding-top: 10px;
 }
 
 .creation {
@@ -325,14 +335,17 @@ h6 {
   max-height: 300px;
   overflow: hidden;
 }
+.creation-title h3, .year-heading {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
 .creation-title {
   z-index: 100;
   padding: 10px;
   padding-right: 30px;
   position: absolute;
   bottom: 0;
-  color: #111;
-  background: white;
+  color: white;
+  background: black;
   /* justify-content: center; */
   /* align-items: left; */
   display: flex;
@@ -447,12 +460,12 @@ nav a:hover, nav a.active {
 
 @media only screen and (min-width: 768px) {
   .container {
-  margin-left: 30px;
-  margin-right: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
   }
   .main-title {
     margin-top: 130px;
-    text-align: left;
+    margin-bottom: 160px;
   }
   .footer {
     min-height: 200px;
@@ -462,10 +475,17 @@ nav a:hover, nav a.active {
     max-height: 380px;
   }
   .creation-title {
-    font-size: 25px;
+    /* transition: all 0.2s; */
+    /* margin-bottom: -57px; */
+    font-size: 20px;
     padding-bottom: 12px;
     padding-right: 86px;
-    padding-top: 19px;
+    padding-top: 12px;
+    padding-left: 20px;
+    margin-left: 30px;
+  }
+  .creation:hover .creation-title {
+    /* margin-bottom: 0; */
   }
   .year-heading {
     text-align: left;
@@ -501,6 +521,7 @@ nav a:hover, nav a.active {
   .single-article-content .video-wrapper {
     margin-top: 70px;
     margin-bottom: 70px;
+    background: #111;
   }
   .single-article-content .img-wrapper:last-child {
     margin-bottom: 0;

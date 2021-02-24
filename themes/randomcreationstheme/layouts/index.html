@@ -15,15 +15,15 @@
       */}}
       {{ range .Site.Pages }}
       <!-- There's a rogue ghost page that has no .md file and images is nil.. exlcude until I figure out what it is -->
-	    {{ if and (or (eq .Type "c") (eq .Type "b")) (not (eq .Params.images nil)) }}
-	    {{ if .NextInSection }}
-        {{ if not (eq .Date.Year .NextInSection.Date.Year) }}
-        <h2 class="year-heading"><span>{{ .Date.Year }}</span></h2>
-        {{ end }}
-	    {{ else }}
+	{{ if and (or (eq .Type "c") (eq .Type "b")) (not (eq .Params.images nil)) }}
+      <div class="creation">
+	  {{ if and (.NextInSection) }}
+	    {{ if not (eq .Date.Year .NextInSection.Date.Year) }}
 	      <h2 class="year-heading"><span>{{ .Date.Year }}</span></h2>
 	    {{ end }}
-      <div class="creation">
+	  {{ else }}
+	      <h2 class="year-heading"><span>{{ .Date.Year }}</span></h2>
+	  {{ end }}
         <div class="creation-title">
           <h3>{{ .Name }}</h3>
         </div>
@@ -34,7 +34,7 @@
 	      </a>
 	    </div>
 	  </div>
-	  {{ end }}
+      {{ end }}
     {{ end }}
     </div>
   </div>
