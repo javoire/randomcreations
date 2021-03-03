@@ -1,7 +1,7 @@
 ---
 title: "Space Game"
 images: ["/img/ue-platform-with-tab-ui.png"]
-tags: ["game-dev"]
+tags: ["Game Dev", "Unreal Engine"]
 date: 2020-03-18
 ---
 

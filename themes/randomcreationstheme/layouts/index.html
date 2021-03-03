@@ -27,6 +27,13 @@
         <div class="creation-title">
           <h3>{{ .Name }}</h3>
         </div>
+	<!-- TODO: fix tag div overlapping with title on small screen -->
+        <!-- <div class="creation-tags"> -->
+	  <!-- <!-1- can't figure out how to do strings.Join(.Params.tags, ",") -1-> -->
+	  {{/* 
+	  {{ range $index, $val := .Params.tags }}{{ if $index }}, {{ end }}{{ $val }}{{ end }}
+	  */}}
+        <!-- </div> -->
         <div class="creation-thumbnail">
           <a href="{{ .Page.Permalink }}">
           <!-- TODO: use a thumbnail -->

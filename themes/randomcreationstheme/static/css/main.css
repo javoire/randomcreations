@@ -315,7 +315,7 @@ h6 {
   position: absolute;
   top: 0;
   margin: 0;
-  right: 30px;
+  right: 0;
 }
 
 .year-heading span {
@@ -335,17 +335,27 @@ h6 {
   max-height: 300px;
   overflow: hidden;
 }
+.creation-tags {
+  z-index: 100;
+  padding: 10px;
+  right: 0;
+  position: absolute;
+  bottom: 0;
+  color: white;
+  display: flex;
+  flex-shrink: 0;
+  text-align: right;
+}
 .creation-title h3, .year-heading {
   font-family: 'Open Sans Condensed', sans-serif;
 }
-.creation-title, .year-heading span {
+.creation-title, .year-heading span, .creation-tags {
   backdrop-filter: blur(4px);
   background: rgba(100,100,100,0.3);
 }
 .creation-title {
   z-index: 100;
   padding: 10px;
-  padding-right: 30px;
   position: absolute;
   bottom: 0;
   color: white;
@@ -475,19 +485,31 @@ nav a:hover, nav a.active {
     height: 380px;
     max-height: 380px;
   }
+  .creation-tags {
+    font-size: 18px;
+    padding-bottom: 14px;
+    padding-left: 46px;
+    padding-top: 14px;
+    padding-right: 22px;
+    right: 30px;
+  }
   .creation-title {
     font-size: 18px;
     padding-bottom: 14px;
     padding-right: 86px;
     padding-top: 14px;
     padding-left: 22px;
-    margin-left: 30px;
+    left: 30px;
   }
   .creation:hover .creation-title {
     /* margin-bottom: 0; */
   }
   .year-heading {
-    text-align: left;
+    text-align: right;
+    right: 30px;
+  }
+  .year-heading span {
+    padding-right: 15px;
   }
   .single-article h1 {
     padding-top: 120px;

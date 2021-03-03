@@ -1,7 +1,7 @@
 ---
 title: "Sculpt"
 images: ["/img/sculpt.png"]
-tags: ["archviz"]
+tags: ["3D", "Blender"]
 date: 2021-02-01
 ---
 

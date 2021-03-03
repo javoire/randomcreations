@@ -1,7 +1,7 @@
 ---
 title: "Interactable 3D UI with unlockable mouse cursor"
 images: ["/img/ue-interactable-ui.png"]
-tags: ["archviz"]
+tags: ["Game Dev", "Unreal Engine"]
 date: 2020-11-19
 ---
 

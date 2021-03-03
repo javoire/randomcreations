@@ -1,7 +1,7 @@
 ---
 title: "Arch Viz"
 images: ["/img/archvizblender.png"]
-tags: ["archviz"]
+tags: ["ArchViz", "Blender"]
 date: 2019-01-01
 ---
 
