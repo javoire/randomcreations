@@ -27,8 +27,11 @@ jobs:
           name: Install dependencies
           command: npm install
       - run:
+          name: Print SA key to file
+          command: echo $DEPLOY_KEY > ~/key.json
+      - run:
           name: Deploy Master to Firebase Hosting
-          command: ./node_modules/.bin/firebase deploy --project randomcreations
+          command: GOOGLE_APPLICATION_CREDENTIALS=~/key.json ./node_modules/.bin/firebase deploy --project randomcreations
 
 workflows:
   main:
