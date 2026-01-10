@@ -1,0 +1,72 @@
+name: Site
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build (Hugo)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.55.0"
+
+      - name: Build
+        run: hugo
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        if: github.event_name == 'push'
+        with:
+          name: public
+          path: public
+          if-no-files-found: error
+
+  deploy:
+    name: Deploy (Firebase Hosting)
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: public
+          path: public
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "16.17"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Write service account key
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$DEPLOY_KEY" > "$RUNNER_TEMP/key.json"
+
+      - name: Deploy
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/key.json
+        run: ./node_modules/.bin/firebase deploy --project randomcreations
+
