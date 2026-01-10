@@ -8,22 +8,23 @@
   <![endif]-->
   <div class="home scalable">
     <div class="container">
-      {{ partial "main-title" }}
+      {{ partial "main-title" . }}
       {{/*
       {{ .Scratch.Set "active" "c" }}
       {{ partialCached "main-menu" . "c" }}
       */}}
-      {{ range .Site.Pages }}
-      <!-- There's a rogue ghost page that has no .md file and images is nil.. exlcude until I figure out what it is -->
-	{{ if and (or (eq .Type "c") (eq .Type "b")) (not (eq .Params.images nil)) }}
+      {{ $pages := where site.RegularPages "Type" "in" (slice "c" "b") }}
+      {{ $pages = where $pages "Params.images" "ne" nil }}
+      {{ $pages = $pages.ByDate.Reverse }}
+      {{ $.Scratch.Delete "year" }}
+      {{ range $pages }}
       <div class="creation">
-	  {{ if and (.NextInSection) }}
-	    {{ if not (eq .Date.Year .NextInSection.Date.Year) }}
-	      <h2 class="year-heading"><span>{{ .Date.Year }}</span></h2>
-	    {{ end }}
-	  {{ else }}
-	      <h2 class="year-heading"><span>{{ .Date.Year }}</span></h2>
-	  {{ end }}
+          {{ $year := .Date.Year }}
+          {{ $prevYear := $.Scratch.Get "year" }}
+          {{ if ne $year $prevYear }}
+            <h2 class="year-heading"><span>{{ $year }}</span></h2>
+            {{ $.Scratch.Set "year" $year }}
+          {{ end }}
         <div class="creation-title">
           <h3>{{ .Name }}</h3>
         </div>
@@ -41,7 +42,6 @@
 	      </a>
 	    </div>
 	  </div>
-      {{ end }}
     {{ end }}
     </div>
   </div>
