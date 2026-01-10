@@ -14,7 +14,17 @@
     "url": "https://github.com/javoire/randomcreations/issues"
   },
   "homepage": "https://github.com/javoire/randomcreations#readme",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.28.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "re2",
+      "protobufjs"
+    ]
+  },
   "devDependencies": {
-    "firebase-tools": "^11.9.0"
+    "firebase-tools": "^15.2.1"
   }
 }
