@@ -4,8 +4,8 @@ title = "Random Creations by @dahljonatan"
 theme = "randomcreationstheme"
 # open graph:
 [params]
-  description = ""
-  images = ["/img/arch-viz.png"]
+  description = "3D art, game development, graphic design, and creative experiments by Jonatan Dahl."
+  images = ["/img/archvizblender.png"]
 
 [taxonomies]
   series = "series"

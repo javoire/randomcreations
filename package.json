@@ -1,9 +1,12 @@
 {
   "name": "randomcreations",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Hugo-powered portfolio of 3D art, game development, and design experiments.",
   "scripts": {
-    "test": "exit 0"
+    "dev": "hugo server --disableFastRender",
+    "build": "hugo --cacheDir \"$PWD/.hugo_cache\" --cleanDestinationDir --gc --minify --panicOnWarning",
+    "check": "pnpm run build",
+    "test": "pnpm run check"
   },
   "repository": {
     "type": "git",
@@ -15,16 +18,7 @@
   },
   "homepage": "https://github.com/javoire/randomcreations#readme",
   "engines": {
-    "node": ">=22"
+    "node": ">=24 <25"
   },
-  "packageManager": "pnpm@10.28.0",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "re2",
-      "protobufjs"
-    ]
-  },
-  "devDependencies": {
-    "firebase-tools": "^15.2.1"
-  }
+  "packageManager": "pnpm@10.34.5"
 }

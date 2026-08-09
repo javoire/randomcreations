@@ -1,7 +1,6 @@
-{{ partial "head" . }}
-
+{{ define "main" }}
 <div class="single-article single-blog">
-  <img src="{{ index .Params.images 0 }}" alt="" />
+  <img src="{{ index .Params.images 0 }}" alt="{{ .Title }}" />
   <div class="single-article-wrapper">
     <h1>{{ .Name }}</h1>
     <div class="single-article-content">
@@ -9,5 +8,4 @@
     </div>
   </div>
 </div>
-
-{{ partial "footer" . }}
+{{ end }}

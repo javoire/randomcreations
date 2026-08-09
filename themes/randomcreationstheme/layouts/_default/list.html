@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="home scalable">
+  <div class="container">
+    {{ partial "main-title" . }}
+    {{ range $page := .Pages.ByDate.Reverse }}
+      <article class="creation">
+        <div class="creation-title">
+          <h3>{{ $page.Title }}</h3>
+        </div>
+        {{ with index $page.Params.images 0 }}
+          <div class="creation-thumbnail">
+            <a href="{{ $page.RelPermalink }}">
+              <img src="{{ . }}" alt="{{ $page.Title }}" />
+            </a>
+          </div>
+        {{ end }}
+      </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
