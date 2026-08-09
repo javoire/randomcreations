@@ -1,11 +1,4 @@
-{{ partial "head" . }}
-  <!--[if IE]>
-    <p class="browserupgrade">
-      You are using an <strong>outdated</strong> browser. Please
-      <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-      your experience and security.
-    </p>
-  <![endif]-->
+{{ define "main" }}
   <div class="home scalable">
     <div class="container">
       {{ partial "main-title" . }}
@@ -36,13 +29,13 @@
 	  */}}
         <!-- </div> -->
         <div class="creation-thumbnail">
-          <a href="{{ .Page.Permalink }}">
+          <a href="{{ .RelPermalink }}">
           <!-- TODO: use a thumbnail -->
-          <img src="{{ index .Params.images 0 }}" alt="{{ .Params.image }}" />
+          <img src="{{ index .Params.images 0 }}" alt="{{ .Title }}" />
 	      </a>
 	    </div>
 	  </div>
     {{ end }}
     </div>
   </div>
-{{ partial "footer" . }}
+{{ end }}

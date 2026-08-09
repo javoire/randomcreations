@@ -1,8 +1,8 @@
 name = "Randomcreationstheme"
-description = ""
-tags = []
-features = []
-min_version = "0.41"
+description = "Portfolio theme for Random Creations"
+tags = ["portfolio", "responsive"]
+features = ["responsive", "open-graph"]
+min_version = "0.154.0"
 
 [author]
   name = "@javoire"

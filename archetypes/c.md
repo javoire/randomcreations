@@ -1,6 +1,7 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-image: ""
+images: ["/icon.png"]
 tags: [""]
 date: {{ .Date }}
+draft: true
 ---
