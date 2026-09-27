@@ -39,9 +39,12 @@
   }
 
   /* The boot splash's sky: a scrim over the top, and every edge fading to the void. */
+  /* The first screen only, so the notes below read on the plain void. */
   .sky {
-    position: fixed;
-    inset: 0;
+    position: absolute;
+    inset: 0 0 auto;
+    height: 100vh;
+    height: 100svh;
     z-index: -1;
     background:
       linear-gradient(to bottom, rgba(4, 6, 10, .6) 0%, rgba(4, 6, 10, .4) 35%, rgba(4, 6, 10, 0) 70%),
@@ -54,6 +57,7 @@
 
   main {
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -177,6 +181,52 @@
   }
   .links a { color: var(--ink-label); text-decoration: none; }
   .links a:is(:hover, :focus-visible) { color: var(--amber-hot); }
+
+  .log {
+    width: min(600px, 100% - 32px);
+    margin: 0 auto;
+    padding: 0 0 96px;
+  }
+  .log > .eyebrow { margin-top: 0; text-align: center; }
+  .log section { padding: 28px 0 8px; border-top: 1px solid var(--hair); }
+  .log h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin: 0 0 8px;
+    font-weight: 400;
+    font-size: 26px;
+    letter-spacing: .12em;
+    color: var(--steel-bright);
+  }
+  .log .when { font: 12px/1 var(--mono); letter-spacing: .04em; color: var(--ink-quiet); }
+  .log .builds { display: flex; gap: 20px; margin: 0 0 12px; }
+  .log .builds a {
+    font: 500 13px/1 var(--sans);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-label);
+    text-decoration: none;
+  }
+  .log .builds a:is(:hover, :focus-visible) { color: var(--amber-hot); }
+  .log h3 {
+    margin: 20px 0 6px;
+    font: 500 13px/1 var(--sans);
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--ink-label);
+  }
+  .log p, .log li { font-size: 17px; line-height: 1.45; color: rgba(147, 170, 191, .92); }
+  .log p { margin: 8px 0; }
+  .log ul { margin: 4px 0; padding-left: 18px; }
+  .log li { margin: 6px 0; }
+  .log li::marker { color: var(--ink-quiet); }
+  .log code {
+    font: 13px var(--mono);
+    padding: 1px 5px;
+    outline: 1px solid var(--hair);
+    color: var(--steel-bright);
+  }
 </style>
 </head>
 <body>
@@ -203,10 +253,26 @@
   </div>
 
   <nav class="links">
-    <a href="https://download.randomcreations.wtf/">Release notes</a>
+    <a id="notes-link" href="https://download.randomcreations.wtf/index.html">Release notes</a>
     <a href="/">Random Creations</a>
   </nav>
 </main>
+<section id="notes" class="log" hidden>
+  <p class="eyebrow">Release notes</p>
+  <div id="notes-body"></div>
+</section>
+<script>
+  // tools/publish.sh in the game repo uploads notes.html beside the builds; the
+  // bucket's CORS rule lets this origin read it. Without it the link stays external.
+  fetch("https://download.randomcreations.wtf/notes.html", { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw r.status; return r.text(); })
+    .then(function (html) {
+      document.getElementById("notes-body").innerHTML = html;
+      document.getElementById("notes").hidden = false;
+      document.getElementById("notes-link").href = "#notes";
+    })
+    .catch(function () {});
+</script>
 <script>
   (function () {
     var p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || navigator.userAgent;
