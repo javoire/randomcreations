@@ -1,41 +1,37 @@
 {{ define "main" }}
-  <div class="home scalable">
-    <div class="container">
-      {{ partial "main-title" . }}
-      {{/*
-      {{ .Scratch.Set "active" "c" }}
-      {{ partialCached "main-menu" . "c" }}
-      */}}
-      {{ $pages := where site.RegularPages "Type" "in" (slice "c" "b") }}
-      {{ $pages = where $pages "Params.images" "ne" nil }}
-      {{ $pages = $pages.ByDate.Reverse }}
-      {{ $.Scratch.Delete "year" }}
+  <div class="timeline-home">
+    <h1 class="timeline-title">
+      Random Creations
+      <a href="https://twitter.com/dahljonatan" target="_blank" rel="noopener noreferrer">by Jonatan Dahl</a>
+    </h1>
+    {{ $pages := where site.RegularPages "Type" "in" (slice "c" "b") }}
+    {{ $pages = where $pages "Params.images" "ne" nil }}
+    {{ $pages = $pages.ByDate.Reverse }}
+    <ol class="timeline-strip" tabindex="0" aria-label="Creations, newest first">
+      {{ $prevYear := 0 }}
       {{ range $pages }}
-      <div class="creation">
-          {{ $year := .Date.Year }}
-          {{ $prevYear := $.Scratch.Get "year" }}
-          {{ if ne $year $prevYear }}
-            <h2 class="year-heading"><span>{{ $year }}</span></h2>
-            {{ $.Scratch.Set "year" $year }}
-          {{ end }}
-        <div class="creation-title">
-          <h3>{{ .Name }}</h3>
-        </div>
-	<!-- TODO: fix tag div overlapping with title on small screen -->
-        <!-- <div class="creation-tags"> -->
-	  <!-- <!-1- can't figure out how to do strings.Join(.Params.tags, ",") -1-> -->
-	  {{/* 
-	  {{ range $index, $val := .Params.tags }}{{ if $index }}, {{ end }}{{ $val }}{{ end }}
-	  */}}
-        <!-- </div> -->
-        <div class="creation-thumbnail">
+        {{ $year := .Date.Year }}
+        <li class="timeline-entry">
           <a href="{{ .RelPermalink }}">
-          <!-- TODO: use a thumbnail -->
-          <img src="{{ index .Params.images 0 }}" alt="{{ .Title }}" />
-	      </a>
-	    </div>
-	  </div>
-    {{ end }}
-    </div>
+            <img src="{{ index .Params.images 0 }}" alt="{{ .Title }}" loading="lazy" />
+          </a>
+          <time class="timeline-year" datetime="{{ .Date.Format "2006-01" }}">{{ if ne $year $prevYear }}{{ $year }}{{ end }}</time>
+        </li>
+        {{ $prevYear = $year }}
+      {{ end }}
+    </ol>
   </div>
+  <script>
+    // Let a vertical mouse wheel move the strip sideways.
+    // Leave pinch-zoom alone, and hand back to page scroll at either end.
+    document.querySelector('.timeline-strip').addEventListener('wheel', (event) => {
+      if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      const strip = event.currentTarget;
+      const atStart = strip.scrollLeft <= 0;
+      const atEnd = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 1;
+      if ((event.deltaY < 0 && atStart) || (event.deltaY > 0 && atEnd)) return;
+      strip.scrollLeft += event.deltaY;
+      event.preventDefault();
+    }, { passive: false });
+  </script>
 {{ end }}
