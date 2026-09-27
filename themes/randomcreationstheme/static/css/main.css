@@ -579,3 +579,110 @@ nav a:hover, nav a.active {
     min-width: 40%;
   }
 }
+
+/* ==========================================================================
+   Homepage: minimal horizontal timeline
+   ========================================================================== */
+
+body:has(.timeline-home) .footer {
+  display: none;
+}
+
+.timeline-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: 100vh;
+  min-height: 100svh;
+  box-sizing: border-box;
+  padding: 56px 0 64px;
+  color: #ecebe6;
+  font-family: 'Instrument Sans', sans-serif;
+}
+
+.timeline-title {
+  margin: 0;
+  padding: 0 64px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.timeline-title a {
+  color: #8c8a83;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.timeline-title a:hover {
+  color: #ecebe6;
+}
+
+.timeline-strip {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin: 0;
+  padding: 0 64px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-padding-inline: 64px;
+  scrollbar-width: none;
+}
+
+.timeline-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-strip:focus-visible {
+  outline: 1px solid #8c8a83;
+  outline-offset: 8px;
+}
+
+.timeline-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.timeline-entry a {
+  display: block;
+  transition: opacity 200ms;
+}
+
+.timeline-entry a:hover {
+  opacity: 0.7;
+}
+
+.timeline-entry img {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: min(640px, 55vh);
+}
+
+.timeline-year {
+  height: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #3a3935;
+  color: #8c8a83;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 767px) {
+  .timeline-home {
+    padding: 32px 0 40px;
+  }
+  .timeline-title,
+  .timeline-strip {
+    padding-inline: 20px;
+  }
+  .timeline-entry img {
+    width: 80vw;
+    height: 60vh;
+    object-fit: cover;
+  }
+}
