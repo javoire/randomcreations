@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceGame</title>
+<meta name="description" content="Download the latest build of SpaceGame for macOS, Windows and Linux.">
+<meta property="og:title" content="SpaceGame">
+<meta property="og:description" content="Download the latest build for macOS, Windows and Linux.">
+<meta property="og:image" content="https://randomcreations.wtf/spacegame/sky.jpg">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Saira+Condensed:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* HudPalette, as mirrored in the game repo's ui-lab/src/foundation/tokens.css. */
+  :root {
+    color-scheme: dark;
+    --void: #04060a;
+    --steel: #93aabf;
+    --steel-bright: #e9f0f6;
+    --hair: rgba(147, 170, 191, 0.20);
+    --ink-label: rgba(147, 170, 191, 0.78);
+    --ink-quiet: rgba(147, 170, 191, 0.60);
+    --amber: #e7a76a;
+    --amber-hot: #ffd6a8;
+    --sans: "Saira Condensed", "Helvetica Neue Condensed", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --bracket: 7px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    min-height: 100vh;
+    background: var(--void);
+    color: var(--ink-label);
+    font-family: var(--sans);
+  }
+
+  /* The boot splash's sky: a scrim over the top, and every edge fading to the void. */
+  .sky {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(to bottom, rgba(4, 6, 10, .6) 0%, rgba(4, 6, 10, .4) 35%, rgba(4, 6, 10, 0) 70%),
+      linear-gradient(to bottom, var(--void) 0, rgba(4, 6, 10, 0) 18%),
+      linear-gradient(to top, var(--void) 0, rgba(4, 6, 10, 0) 26%),
+      linear-gradient(to right, var(--void) 0, rgba(4, 6, 10, 0) 14%),
+      linear-gradient(to left, var(--void) 0, rgba(4, 6, 10, 0) 14%),
+      var(--void) url("sky.jpg") center 70% / cover no-repeat;
+  }
+
+  main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15vh 16px 12vh;
+  }
+
+  /* A tall window crops the plate to the planet; hold it to the bottom instead. */
+  @media (max-aspect-ratio: 1/1) {
+    .sky { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, center bottom; background-size: auto, auto, auto, auto, auto, 240% auto; }
+    main { padding-top: 10vh; }
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 300;
+    font-size: clamp(40px, 7vw, 64px);
+    line-height: 1;
+    letter-spacing: .27em;
+    /* Tracking trails the last glyph; half of it back keeps the word centred. */
+    text-indent: .27em;
+    color: var(--steel-bright);
+  }
+  h1::after {
+    content: "";
+    display: block;
+    margin-top: 24px;
+    height: 1px;
+    background: rgba(147, 170, 191, 0.30);
+  }
+
+  .eyebrow {
+    margin: 48px 0 16px;
+    font: 500 13px/1 var(--sans);
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--ink-label);
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: min(320px, 100%);
+  }
+
+  /* HudButton: a hairline outline with brighter registered corners, amber on hover. */
+  .command {
+    --b: rgba(147, 170, 191, .38);
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 18px;
+    outline: 1px solid rgba(147, 170, 191, .25);
+    outline-offset: -1px;
+    background: rgba(4, 6, 10, .55);
+    backdrop-filter: blur(6px);
+    color: var(--ink-label);
+    text-decoration: none;
+    transition: color .15s, background-color .15s;
+  }
+  .command::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(var(--b), var(--b)) top left / var(--bracket) 1px no-repeat,
+      linear-gradient(var(--b), var(--b)) top right / var(--bracket) 1px no-repeat,
+      linear-gradient(var(--b), var(--b)) bottom left / var(--bracket) 1px no-repeat,
+      linear-gradient(var(--b), var(--b)) bottom right / var(--bracket) 1px no-repeat,
+      linear-gradient(var(--b), var(--b)) top left / 1px var(--bracket) no-repeat,
+      linear-gradient(var(--b), var(--b)) top right / 1px var(--bracket) no-repeat,
+      linear-gradient(var(--b), var(--b)) bottom left / 1px var(--bracket) no-repeat,
+      linear-gradient(var(--b), var(--b)) bottom right / 1px var(--bracket) no-repeat;
+  }
+  .command:is(:hover, :focus-visible) {
+    --b: var(--amber);
+    color: var(--amber-hot);
+    background-color: rgba(231, 167, 106, .06);
+    outline-color: rgba(231, 167, 106, .42);
+  }
+  .command:focus-visible { outline-width: 1px; }
+  .command b {
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+  .command span {
+    font: 11px/1 var(--mono);
+    letter-spacing: .04em;
+    color: var(--ink-quiet);
+    white-space: nowrap;
+  }
+  .command:is(:hover, :focus-visible) span { color: var(--amber); }
+
+  /* The visitor's own platform is the one the menu has already selected. */
+  .command.yours { --b: var(--amber); color: var(--amber); }
+  .command.yours span { color: rgba(231, 167, 106, .7); }
+
+  .notes {
+    width: min(320px, 100%);
+    margin: 28px 0 0;
+    padding: 16px 0 0;
+    border-top: 1px solid var(--hair);
+    font: 12px/1.6 var(--mono);
+    color: var(--ink-quiet);
+  }
+  .notes p { margin: 0 0 8px; }
+  .notes b { font-weight: 400; color: var(--ink-label); margin-right: .5em; }
+
+  .links {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    font: 500 13px/1 var(--sans);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+  .links a { color: var(--ink-label); text-decoration: none; }
+  .links a:is(:hover, :focus-visible) { color: var(--amber-hot); }
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+<main>
+  <h1>SPACEGAME</h1>
+
+  <p class="eyebrow">Latest build</p>
+  <nav class="menu" aria-label="Downloads">
+    <a class="command" data-os="macos" href="https://download.randomcreations.wtf/latest/SpaceGame-macos.zip">
+      <b>macOS</b><span>Apple silicon &amp; Intel</span>
+    </a>
+    <a class="command" data-os="windows" href="https://download.randomcreations.wtf/latest/SpaceGame-windows.zip">
+      <b>Windows</b><span>64-bit &middot; 10+</span>
+    </a>
+    <a class="command" data-os="linux" href="https://download.randomcreations.wtf/latest/SpaceGame-linux.zip">
+      <b>Linux</b><span>64-bit &middot; Vulkan</span>
+    </a>
+  </nav>
+
+  <div class="notes">
+    <p><b>macOS</b> signed and notarized.</p>
+    <p><b>Windows</b> More info &rarr; Run anyway.</p>
+  </div>
+
+  <nav class="links">
+    <a href="https://download.randomcreations.wtf/">Release notes</a>
+    <a href="/">Random Creations</a>
+  </nav>
+</main>
+<script>
+  (function () {
+    var p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || navigator.userAgent;
+    var os = /mac/i.test(p) && !/iphone|ipad/i.test(navigator.userAgent) ? "macos"
+           : /win/i.test(p) ? "windows"
+           : /linux/i.test(p) && !/android/i.test(navigator.userAgent) ? "linux" : null;
+    var el = os && document.querySelector('[data-os="' + os + '"]');
+    if (el) el.classList.add("yours");
+  })();
+</script>
+</body>
+</html>
